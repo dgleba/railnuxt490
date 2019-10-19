@@ -1,15 +1,23 @@
 FROM ruby:2.5
 
-ARG UID
-RUN adduser rails --uid $UID --disabled-password --gecos ""
+# ARG UID
+# RUN adduser rails --uid $UID --disabled-password --gecos ""
 
 ENV APP /usr/src/app
 RUN mkdir $APP
 WORKDIR $APP
+# COPY Gemfile Gemfile.lock ./
+COPY Gemfile  ./
 
-COPY Gemfile* $APP/
-RUN bundle install -j3 --path vendor/bundle
+# COPY Gemfile* $APP/
+# RUN bundle install -j3 --path vendor/bundle
+# RUN bundle install -j3 
 
-COPY . $APP/
+# COPY . $APP/
 
-CMD ["rails", "server", "-p", "8080", "-b", "0.0.0.0"]
+RUN   echo "alias ll='ls -la'" >>   ~/.bashrc ; chmod ugo+rw  ~/.bashrc \
+  && echo "alias psg='ps -ef|grep '" >>   ~/.bashrc  
+
+
+CMD ["bundle", "exec","rails", "server", "-p", "8080", "-b", "0.0.0.0"]
+

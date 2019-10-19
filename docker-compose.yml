@@ -1,28 +1,45 @@
-version: '3'
+version: "3.6"
 services:
-  db:
-    image: postgres
+  db3309:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: dkrdb
+      MYSQL_ROOT_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password
     ports:
-      - "5432"
+      - "3309:3306"
+    volumes:
+      - mysql_autheg:/var/lib/mysql/ # folder for mysql's internal data files.
   backend:
     build:
       context: autheg-backend
-      args:
-        UID: ${UID:-1001}
+      # args:
+      #   UID: ${UID:-1000}
     volumes:
       - ./autheg-backend:/usr/src/app
+      - bundle_cache:/usr/local/bundle/
     ports:
       - "8080:8080"
     depends_on:
-      - db
-    user: rails
+      - db3309
+    # user: rails
   frontend:
     build:
       context: autheg-frontend
       args:
-        UID: ${UID:-1001}
+        UID: ${UID:-1000}
     volumes:
       - ./autheg-frontend:/usr/src/app
     ports:
-      - "3000:3000"
-    user: frontend
+      - "7000:3000"
+    user: "1000"
+  adminer:
+    # 10.4.1.231:6117/  use db or 10.4.1.228:3308 for server while logging in.
+    image: adminer:4.7
+    restart: always
+    ports:
+      - 6119:8080
+
+volumes:
+  bundle_cache:
+  mysql_autheg:

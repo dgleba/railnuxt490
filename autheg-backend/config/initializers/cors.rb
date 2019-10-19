@@ -7,7 +7,8 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:3000', 'autheg.herokuapp.com'
+    # regex can be used...
+    origins 'localhost:3000', 'autheg.herokuapp.com', /.*10.4.1.228.*/
 
     resource '*',
       headers: :any,
