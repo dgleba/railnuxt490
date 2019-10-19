@@ -285,6 +285,9 @@ _____________
 Title:  .
 -----------------------2019-10-18[Oct-Fri]19-43PM
 
+works..
+
+
 dkd -v --rmi local
 make clean
 
@@ -327,4 +330,41 @@ dc run backend /bin/bash
 
 ----------------------------------------------------
 
+
+----------------------------------------------------
+Title:  .
+-----------------------2019-10-18[Oct-Fri]20-46PM
+
+copy..
+
+
+clone autheg to railnuxt490. copy my changes over top using rsync.
+
+1.
+fork.
+   origin  https://github.com/fishpercolator/autheg.git (fetch)
+
+
+2.
+
+git clone https://github.com/dgleba/railnuxt490.git
+
+3.
+copy from
+sftp://10.4.1.228/srv/file/test/nuxtrl/autheg
+
+  cd /srv/file/test/nuxtrl/
+     Source=autheg;    
+     Dest=railnuxt490;
+  rsync -av  --exclude '.git'  --exclude 'node_modules'  $Source/ $Dest/
+
+4.
+git cap
+
+
+was.. origin  https://github.com/fishpercolator/autheg.git (fetch)
+
+
+
+----------------------------------------------------
  
