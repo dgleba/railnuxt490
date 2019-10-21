@@ -35,7 +35,8 @@ module.exports = {
   },
   modules: ["@nuxtjs/vuetify", "@nuxtjs/axios", "@nuxtjs/auth"],
   axios: {
-    baseURL: "http://10.4.1.228:8080/api"
+    // baseURL: "http://10.4.1.228:8080/api"
+    baseURL: "http://10.4.1.228:3001"
   },
 
   auth: {

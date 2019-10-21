@@ -293,6 +293,8 @@ make clean
 
 dc build
 
+docker-compose run frontend yarn
+
 
 touch autheg-backend/Gemfile.lock
 #try this first..

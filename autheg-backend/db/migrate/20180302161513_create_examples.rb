@@ -4,7 +4,9 @@ class CreateExamples < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :colour
 
-      t.timestamps
+      t.datetime "created_at"
+      t.datetime "updated_at"
+
     end
   end
 end

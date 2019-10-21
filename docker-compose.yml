@@ -7,7 +7,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     command: --default-authentication-plugin=mysql_native_password
     ports:
-      - "3309:3306"
+      - "3310:3306"
     volumes:
       - mysql_autheg:/var/lib/mysql/ # folder for mysql's internal data files.
   backend:
@@ -43,3 +43,7 @@ services:
 volumes:
   bundle_cache:
   mysql_autheg:
+  #
+# back
+# frnt
+# adm
