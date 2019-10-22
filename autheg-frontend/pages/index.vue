@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     async updateExamples() {
-      this.examples = await this.$axios.$get('/examples')
+      this.examples = await this.$axios.$get('/examples.json')
     }
   },
 

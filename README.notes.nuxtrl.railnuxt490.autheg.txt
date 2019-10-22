@@ -9,7 +9,20 @@ can login and log out..
 
 -----
 
+now..
 
+albe@pmdsdata7:/srv/file/test/nuxtrl/railnuxt490$ git lds
+7f926bf\ 2019-10-21 (HEAD -> master, origin/master, origin/HEAD)\ 1021\ [David Glebagit]
+fb72905\ 2019-10-18\ update.notes\ [David Glebagit]
+
+albe@pmdsdata7:/srv/file/test/nuxtrl/railnuxt490$ git r
+origin  https://github.com/dgleba/railnuxt490.git (fetch)
+origin  https://github.com/dgleba/railnuxt490.git (push)
+
+
+-----
+
+was..
 sftp://10.4.1.228/srv/file/test/nuxtrl/autheg
 
 2019-10-18_Fri_12.03-PM

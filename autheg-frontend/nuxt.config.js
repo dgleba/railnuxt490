@@ -42,7 +42,7 @@ module.exports = {
   auth: {
     endpoints: {
       login: { url: "/users/sign_in" },
-      logout: { url: "/users/sign_out", method: "delete" },
+      logout: { url: "/users/sign_out.json", method: "delete" },
       user: { url: "/users/current" }
     }
   }
