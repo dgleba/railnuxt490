@@ -4,7 +4,9 @@ Status: works.
 
 Summary: good rails docker example to learn the gemfile.lock problem.
 
-can login and log out..
+  can login and log out..
+
+  shows examples table on index.vue.
 
 
 -----
