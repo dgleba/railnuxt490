@@ -33,7 +33,7 @@ export default {
     // format date
     dateformatd: function(input) {
       if (input) {
-        return (concat('D ',String(input)));
+        return (String(input));
       }
     }
   },
@@ -47,4 +47,16 @@ export default {
     this.updateExamples()
   }
 }
+
+
+/* 
+notes..
+
+          <v-list-tile-content>{{example.upated_at | dateformatd}}</v-list-tile-content>
+        return (concat('D ',String(input)));
+
+
+*/
+
+
 </script>
