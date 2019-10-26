@@ -45,8 +45,15 @@ module.exports = {
         url: "/users/sign_in.json",
         propertyName: "token"
       },
-      logout: { url: "/users/sign_out.json", method: "delete" },
+      logout: false,
       user: { url: "/users/current.json" }
     }
   }
+
+  /*
+notes.. 
+      logout: { url: "/users/sign_out.json", method: "delete" },
+      user: { url: "/users/current.json" }
+
+*/
 };

@@ -1,11 +1,10 @@
 
-see..
-C:\n\sfile\0computersf\2019\02019cmnotes\nuxtvue\nuxtrl490\README.notes.nuxtrl.railnuxt490.autheg_master.txt
 
+Status: works.  
 
+autheg-backend works with autheg-frontend. 
+and works with brail484b53 as well. 
 
-
-Status: works.
 
 
 Summary: good rails docker example to learn the gemfile.lock problem.
@@ -387,6 +386,175 @@ git cap
 
 was.. origin  https://github.com/fishpercolator/autheg.git (fetch)
 
+
+
+----------------------------------------------------
+
+
+
+----------------------------------------------------
+Title:  .
+-----------------------2019-10-25[Oct-Fri]14-24PM
+
+
+This is response from two different rails backends.
+
+_____________
+
+curl -i -H "Content-Type: application/json" \
+      -X POST -D ./curldump -i\
+      -d '{"user": {"email":"a@a","password":"123123"}}' \
+      http://10.4.1.228:8080/api/users/sign_in
+      
+albe@pmdsdata7:~$ 
+curl -i -H "Content-Type: application/json" \
+>       -X POST -D ./curldump -i\
+>       -d '{"user": {"email":"a@a","password":"123123"}}' \
+>       http://10.4.1.228:8080/api/users/sign_in
+HTTP/1.1 200 OK
+Location: /
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNTcyMDI3MjY0LCJleHAiOjE1NzIwMzA4NjQsImp0aSI6ImQxOGQxMzk0LTYyM2ItNDYyOS1hNjBjLTliZGRiODM0ODBiMiJ9.OYQaesjm9PQoPbvQd0jeSvJVuzHnAexpZ3-LKJTawjA
+ETag: W/"d3f1132ce2f4735ccac03af65c2a8f48"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 04a571cc-7a31-4090-b42a-6835e0192e80
+X-Runtime: 1.258037
+Vary: Origin
+Transfer-Encoding: chunked
+
+{"token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNTcyMDI3MjY0LCJleHAiOjE1NzIwMzA4NjQsImp0aSI6ImQxOGQxMzk0LTYyM2ItNDYyOS1hNjBjLTliZGRiODM0ODBiMiJ9.OYQaesjm9PQoPbvQd0jeSvJVuzHnAexpZ3-LKJTawjA"}
+
+albe@pmdsdata7:~$
+
+_____________
+
+      
+curl -i -H "Content-Type: application/json" \
+      -X POST -D ./curldump -i\
+      -d '{"user": {"email":"a","password":"a"}}' \
+      http://10.4.1.228:3001/users/sign_in.json
+            
+albe@pmdsdata7:~$ curl -i -H "Content-Type: application/json" \
+>       -X POST -D ./curldump -i\
+>       -d '{"user": {"email":"a","password":"a"}}' \
+>       http://10.4.1.228:3001/users/sign_in.json
+HTTP/1.1 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+ETag: W/"862f54690147f5b530aa5c529b23a727"
+Cache-Control: max-age=0, private, must-revalidate
+Set-Cookie: _brail484b53_session=EevIF1zglMOIH6pzmDXeo%2FMJHGFzv3T3xMVeN98cO4fvuvWoQSYSeBli12BVcSbwOMsc7%2BtHJ5rbG4xIuE3NgPhKUmfRMsj3KshzTPQ7wq4E%2FzonN%2FKY83kZCi7SwvNSnG4M0d9ceA5jBraEofDd74wtcFG0k8UkSnfr3FvFpXlI9cb4YHcc3cb%2BRSSJON6hQ3%2ByWT%2B3B9CDkI2m8o8A%2BUletSa1wUpB--lkd617BJsdEynvLY--4SJKb7EiJXScDyh29dd0aQ%3D%3D; path=/; HttpOnly
+X-Request-Id: 81a5f5d1-73db-4ef6-a3e2-bda36761875f
+X-Runtime: 0.265291
+Vary: Origin
+Transfer-Encoding: chunked
+
+{"user":"a","token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1NzIwOTI0Nzl9.BJhxZENuNBPBYmGbTEwHIJRqbSCwhZ4h9QFqxElfC6c"}
+albe@pmdsdata7:~$
+albe@pmdsdata7:~$
+            
+
+
+----------------------------------------------------
+
+----------------------------------------------------
+Title:  .
+-----------------------2019-10-25[Oct-Fri]16-15PM
+
+
+rails generate scaffold User2 email:string encrypted_password:string reset_password_token:string reset_password_sent_at:datetime remember_created_at:datetime confirmation_token:string confirmed_at:datetime confirmation_sent_at:datetime unconfirmed_email:string failed_attempts:integer unlock_token:string locked_at:datetime name:string role:references sign_in_count:integer current_sign_in_at:datetime last_sign_in_at:datetime current_sign_in_ip:string last_sign_in_ip:string --no-migration -f
+
+_____________
+
+class ViewOnlineValue < ActiveRecord::Base
+  # we can specify prefix, no need when using with 'dbo.' 
+  self.table_name_prefix = 'dbo.' 
+  # specify table name if it breaks Rails conventions
+  self.table_name  = 'viewOnlineValues'
+
+_____________
+
+
+
+http://10.4.1.228:3001/users/current.json
+
+NoMethodError in User2s#show
+Showing /srv/file/test/nuxtrl/railnuxt490/brail484b53/app/views/user2s/_user2.json.jbuilder where line #1 raised:
+
+undefined method `id' for nil:NilClass
+Extracted source (around line #1):
+1
+2
+              
+json.extract! user2, :id, :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :failed_attempts, :unlock_token, :locked_at, :name, :role_id, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at
+json.url user2_url(user2, format: :json)
+
+Trace of template inclusion: app/views/user2s/show.json.jbuilder
+
+Rails.root: /srv/file/test/nuxtrl/railnuxt490/brail484b53
+
+Application Trace | Framework Trace | Full Trace
+app/views/user2s/_user2.json.jbuilder:1:in `_app_views_user_s__user__json_jbuilder___3029431862227071318_47085588366500'
+app/views/user2s/show.json.jbuilder:1:in `_app_views_user_s_show_json_jbuilder__3497432708681219881_47085588299820'
+Request
+Parameters:
+
+{"format"=>"json"}
+Toggle session dump
+Toggle env dump
+Response
+
+
+_____________
+
+
+albe@pmdsdata7:/srv/file/test/nuxtrl/railnuxt490/brail484b53$ git s
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   app/controllers/users/sessions_controller.rb        -- added show
+        modified:   config/routes.rb                                    -- edited
+        modified:   db/development.sqlite3
+        modified:   db/migrate/40170101010105_add_trackable_to_devise.rb   -- changed inet to string
+        modified:   db/schema.rb
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        app/assets/javascripts/user2s.coffee
+        app/assets/stylesheets/user2s.scss
+        app/controllers/user2s_controller.rb
+        app/helpers/user2s_helper.rb
+        app/models/user2.rb                                     - add table name.
+        app/views/user2s/
+        test/controllers/user2s_controller_test.rb
+        test/fixtures/user2s.yml
+        test/models/user2_test.rb
+        test/system/user2s_test.rb
+
+        
+
+
+----------------------------------------------------
+ 
+
+----------------------------------------------------
+Title:  .
+-----------------------2019-10-25[Oct-Fri]16-39PM
+
+<input tabindex=​"0" aria-label=​"Password" type=​"password" value autocomplete=​"off" style=​"background-image:​ url("data:​image/​png;​base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAYJJREFUOBGVVLuKwkAUPRFRY2GlhRKDVRpBMFgJgRQ2C37HCvmCdOpnuE0qWzvZBf8hTbC2SLAKqQQfTXbumAy6xE0cmMx9nHNm5t4h0nK5/​IjjeMVmFwWGJEk+g30uFosfgpfeIRMh2eiLbBokUGjnO/​z+feSUHhN5dr1eh6ZpT7C3BHq9HiaTSbZArVYTiWq1ClYs4T/​mRDAxyrROp1Pouo71eo0oimBZFo7HIxzHecr9JZP/​1hWyBKT5fB5Tgo55uVw4hq5wvV6z8CLGrhgwZyZOkJIJkUcmDGulwpYVrwEF8oZhGOj3+2g2m7xWh8OBi4gT/​CcwHo9hmiZ838d2u+WFTvGl5G2nfuY6Go04WZZlqKqK2+0mcCQwyxNpNBpQFAWVSgXD4RCDwUAIlFkXvpmnikhipN0h93w+43Q6YbPZwLZtdDodAS9UA8/​z0G63+QMjJhUwHS+7QH1OWoXdbocwDNFqtRAEAfb7PecT5qUAQ1Bt6EejsAnXddNNBZkwv/​3KjSrHve9/​AAAAAElFTkSuQmCC")​;​ background-repeat:​ no-repeat;​ background-attachment:​ scroll;​ background-size:​ 16px 18px;​ background-position:​ 98% 50%;​ cursor:​ auto;​">​
+lpfulllib.js:1 [Deprecation] Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.
+include_language @ lpfulllib.js:1
+(anonymous) @ lpfulllib.js:1
+VM167:1 GET http://10.4.1.228:3001/users/current.json 500 (Internal Server Error)
+(
 
 
 ----------------------------------------------------
