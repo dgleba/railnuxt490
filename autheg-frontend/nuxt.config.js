@@ -36,14 +36,17 @@ module.exports = {
   modules: ["@nuxtjs/vuetify", "@nuxtjs/axios", "@nuxtjs/auth"],
   axios: {
     // baseURL: "http://10.4.1.228:8080/api"
+    // baseURL: "http://10.4.1.228:3001/api"
     baseURL: "http://10.4.1.228:3001"
   },
-
   auth: {
     endpoints: {
-      login: { url: "/users/sign_in" },
+      login: {
+        url: "/users/sign_in.json",
+        propertyName: "token"
+      },
       logout: { url: "/users/sign_out.json", method: "delete" },
-      user: { url: "/users/current" }
+      user: { url: "/users/current.json" }
     }
   }
 };

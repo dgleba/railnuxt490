@@ -3,9 +3,7 @@
     <v-flex>
       <v-card v-if="$auth.state.loggedIn">
         <v-alert type="error" :value="error">{{error}}</v-alert>
-        <v-card-text>
-          Logged in as {{$auth.state.user.email}}
-        </v-card-text>
+        <v-card-text>Logged in as {{$auth.state.user.email}}</v-card-text>
         <v-card-actions>
           <v-btn @click="logout">Log out</v-btn>
         </v-card-actions>
@@ -28,27 +26,36 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       error: null
-    }
+    };
   },
   methods: {
-    login: function () {
-      this.$auth.login({
-        data: {
-          user: {
-            email: this.email,
-            password: this.password
+    login: function() {
+      this.$auth
+        .login({
+          data: {
+            user: {
+              email: this.email,
+              password: this.password
+            }
           }
-        }
-      }).catch(e => {this.error = e + ''})
+        })
+        .then(() => {
+          this.$auth.fetchUser();
+        })
+        .catch(e => {
+          this.error = e + "";
+        });
     },
-    logout: function () {
-      this.$auth.logout().catch(e => {this.error = e + ''})
+    logout: function() {
+      this.$auth.logout().catch(e => {
+        this.error = e + "";
+      });
     }
   }
-}
+};
 </script>

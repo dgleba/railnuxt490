@@ -16,8 +16,9 @@ COPY Gemfile  ./
 # COPY . $APP/
 
 RUN   echo "alias ll='ls -la'" >>   ~/.bashrc ; chmod ugo+rw  ~/.bashrc \
-  && echo "alias psg='ps -ef|grep '" >>   ~/.bashrc  
-
+  && echo "alias psg='ps -ef|grep '" >>   ~/.bashrc  \
+  && find $APP -type f -name "server.pid" -exec rm -f {} \; \
+  && rm -f $APP/tmp/pids/server.pid
 
 CMD ["bundle", "exec","rails", "server", "-p", "8080", "-b", "0.0.0.0"]
 
